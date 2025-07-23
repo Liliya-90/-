@@ -5,12 +5,6 @@ import datetime
 import time
 import pygame
 
-window = Tk()
-window.title("Напоминание")
-label = Label(text="Установите напоминание")
-label.pack(pady=10)
-set_button = Button(text="Установить напоминание", command=set)
-set_button.pack()
 
 def set():
     rem = sd.askstring("Время напоминания", "Введите время напоминания ЧЧ:ММ(в 24 часовом формате)")
