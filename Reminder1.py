@@ -5,6 +5,7 @@ import datetime
 import time
 import pygame
 
+
 t = 0
 
 
@@ -17,14 +18,15 @@ def set():
             minute = int(rem.split(":")[1])
             now = datetime.datetime.now()
             print(now)
-            dt = now.replace(hour=hour, minute=minute)
+            dt = now.replace(hour=hour, minute=minute, second=0)
             print(dt)
             t = dt.timestamp()
             print(t)
         except Exception as e:
             mb.showerror("Ошибка!", f'Произошла ошибка {e}')
 
-def chek():
+
+def check():
     global t
     if t:
         now = time.time()
@@ -41,10 +43,12 @@ def play_snd():
 
 window = Tk()
 window.title("Напоминание")
-label = Label(text="Установите напоминание")
+label = Label(text="Установите напоминание", font=("Arial", 14))
 label.pack(pady=10)
 set_button = Button(text="Установить напомнинание", command=set)
 set_button.pack()
+
+check()
 
 
 window.mainloop()
