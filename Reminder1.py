@@ -29,7 +29,7 @@ def chek():
     if t:
         now = time.time()
         if now >= t:
-            play snd()
+            play_snd()
             t = 0
     window.after(10000, check)
 
