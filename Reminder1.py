@@ -23,6 +23,7 @@ def set():
             print(dt)
             t = dt.timestamp()
             print(t)
+            label.config(text=f'Напоминание на {hour:02}:{minute:02}')
         except Exception as e:
             mb.showerror("Ошибка!", f'Произошла ошибка {e}')
 
@@ -37,7 +38,7 @@ def check():
     window.after(10000, check)
 
 def play_snd():
-    global music()
+    global music
     music = True
     pygame.mixer.init()
     pygame.mixer.music.load("reminder.mp3")
@@ -56,9 +57,10 @@ window.title("Напоминание")
 label = Label(text="Установите напоминание", font=("Arial", 14))
 label.pack(pady=10)
 set_button = Button(text="Установить напомнинание", command=set)
-set_button.pack()
+set_button.pack(pady=10)
 
 stop_button = Button(text="Остановить музыку", command=stop_music)
+stop_button.pack(pady=10)
 
 check()
 
